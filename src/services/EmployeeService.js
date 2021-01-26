@@ -1,17 +1,22 @@
-import axios from 'axios';
-import { baseUrl } from '../config/config';
+import AxiosService from "./AxioService";
 
-export default class AxiosService {
-    
-    Post(url, data) {
-        return axios.post(baseUrl+url, data, {
-            headers: {
-                contentType: 'application/json'
-            }
-        })
+
+const service = new AxiosService();
+export default class EmployeeService {
+
+    employeeRegistration(requestData) {
+        return service.Post('/create', requestData);
     }
 
-    get(data) {
-        axios.get('url', data)
+    getAllEmployeeData() {
+        return service.Get();
+    }
+
+    deleteEmployeeData(data) {
+        return service.Delete('/delete/' + data);
+    }
+
+    updateEmployeeData(requestData) {
+        return service.Put('/update/1', requestData);
     }
 }
