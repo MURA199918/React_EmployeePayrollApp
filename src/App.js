@@ -1,10 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import PayrollForm from './components/payrollform/PayrollForm';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      Hello Employee Payroll Application
+      <Router>
+        <Switch>
+          <Route>
+            <PayrollForm/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
