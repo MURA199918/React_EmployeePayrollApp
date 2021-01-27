@@ -19,7 +19,11 @@ const Display = (props) => {
   }
 
   const updateEmployee = (id) => {
-    service.updateEmployeeData(id).then()
+    service.updateEmployeeData(id).then(() => {
+      console.log("updated successfully");
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   return (
@@ -36,7 +40,7 @@ const Display = (props) => {
         </tr>
         {
           props.employeeArray && props.employeeArray.map((element, ind) => (
-            <tr key={ind}>
+            <tr key={element.employeeId}>
               <td><img className="profile" src={element.profilePic} alt="imge" /></td>
               <td>{element.name}</td>
               <td>{element.gender}</td>
